@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {GoogleLogin, GoogleOAuthProvider, TokenResponse, useGoogleLogin} from "@react-oauth/google";
-// import dotenv from 'dotenv'
 
 function GoogleButton() {
 
@@ -13,15 +12,13 @@ function GoogleButton() {
 
   return (
     <div>
-      <GoogleLogin onSuccess={() => {}}></GoogleLogin>
       <button onClick={() => login()}>Login</button>
     </div>
   )
 }
 
 function App() {
-  // dotenv.config()
-  let googleClientId: string = process.env.GOOGLE_CLIENT_ID || (() => { throw new Error("GOOGLE_CLIENT_ID env not found"); })();
+  let googleClientId: string = process.env.REACT_APP_GOOGLE_CLIENT_ID || (() => { throw new Error("GOOGLE_CLIENT_ID env not found"); })();
   return (
     <div className="App">
     <header className="App-header">
